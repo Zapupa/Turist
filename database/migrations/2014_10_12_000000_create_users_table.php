@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('tel');
-            $table->string('role');
+            $table->string('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -30,7 +30,7 @@ return new class extends Migration {
                 'middlename' => 'admin',
                 'surname' => 'admin',
                 'email' => 'admin@admin.com',
-                'password' => 'administrator',
+                'password' => '$2y$12$.ugj/8zL3FQ.RdLzPZB7j.RGXijGDm.rk.fue7XL3/HmEug.sZP8q',
                 'tel' => 'admin',
                 'role' => 'admin'
             ]
