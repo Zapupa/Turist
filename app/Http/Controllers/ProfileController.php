@@ -21,6 +21,13 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function exit()
+    {
+        Auth::logout();
+
+        return Redirect::to('/');
+    }
+
     /**
      * Update the user's profile information.
      */

@@ -47,8 +47,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    private function tours(): HasMany
+    private function requests(): HasMany
     {
-        return $this->hasMany(Tour::class);
+        return $this->hasMany(Request::class);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Tour extends Model
 {
@@ -17,13 +17,8 @@ class Tour extends Model
         'price',
     ];
 
-    public function user(): BelongsTo
+    private function requests(): HasMany
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function request(): BelongsTo
-    {
-        return $this->belongsTo(Request::class);
+        return $this->hasMany(Request::class);
     }
 }
