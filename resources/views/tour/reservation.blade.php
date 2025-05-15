@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Бронирование') }}
         </h2>
     </x-slot>
 
@@ -10,12 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         {{$tour->title}}
                     </div>
                     <div
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        {{$tour->date}}
+                        class="text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        @php
+                            \Carbon\Carbon::setLocale('ru')
+                        @endphp
+                        {{\Carbon\Carbon::parse($tour->date)->translatedFormat('j F Y')}}
                     </div>
 
                     <form method="POST" action="{{ route('request.store', $tour) }}" enctype="multipart/form-data">
