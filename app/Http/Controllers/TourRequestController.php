@@ -11,7 +11,7 @@ class TourRequestController extends Controller
 {
     public function index()
     {
-        $requests = TourRequest::all();
+        $requests = TourRequest::where('user_id', Auth::user()->id)->get();
 
         return view('request.request', compact('requests'));
     }

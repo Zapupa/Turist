@@ -20,6 +20,11 @@
     @if (Route::has('login'))
     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
       @auth
+      @if (auth()->user()->isAdmin() === true)
+      <a href="{{ route('admin.index') }}"
+      class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+      Панель администратора</a>
+    @endif
       <a href="{{ route('tour.request') }}"
       class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
       Профиль</a>
@@ -69,9 +74,9 @@
           <img class="rounded-t-lg" src="/images/{{$tour->path_img}}" alt="" />
           </a>
           <div class="p-5">
-          <a href="#">
+          <div href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $tour->title }}</h5>
-          </a>
+          </div>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $tour->date }}</p>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $tour->price }}</p>
           @if (Auth::check())

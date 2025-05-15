@@ -13,16 +13,22 @@
                         <thead class="text-xs text-white uppercase bg-blue-700">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    ФИО
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Количество мест
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Дата тура
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Название
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Количество мест
+                                    Цена
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Стоимость
+                                    Общая стоимость
                                 </th>
                             </tr>
                         </thead>
@@ -30,6 +36,15 @@
                             @foreach($requests as $request)
                                 <div class="relative overflow-x-auto">
                                     <tr class="bg-white border-b dark:bg-white dark:border-blue-700">
+                                        <td class="px-6 py-4">
+                                            {{ $request->user->surname }}
+                                            {{ $request->user->middlename }}
+                                            {{ $request->user->name }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $request->number}}
+                                        </td>
+
                                         <td scope="row"
                                             class="px-6 py-4 font-medium text-black whitespace-nowrap dark:text-black">
                                             @php
@@ -41,7 +56,7 @@
                                             {{ $request->tour->title }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{ $request->number }}
+                                            {{ $request->tour->price }}
                                         </td>
                                         <td class="px-6 py-4">
                                             {{ $request->costs }}
